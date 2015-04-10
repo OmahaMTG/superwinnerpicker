@@ -20,13 +20,14 @@ function create() {
     gameState.platforms = platform.createPlatform(gameState) ;
     gameState.kong = kong.createKong(gameState);
     gameState.mario = mario.createMario(gameState);
-    var b = barrel.createBarrels(gameState)
+    gameState.barrels = barrel.createBarrels(gameState)
 }
 
 function update() {
 
   gameState.game.physics.arcade.collide(gameState.mario, gameState.platforms);
   gameState.game.physics.arcade.collide(gameState.kong, gameState.platforms);
+  gameState.game.physics.arcade.collide(gameState.barrels, gameState.platforms);
 }
 
 
