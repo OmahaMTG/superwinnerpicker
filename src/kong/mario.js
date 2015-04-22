@@ -5,8 +5,8 @@ module.exports = {
 	    var player = gameState.game.add.sprite(100, gameState.game.world.height - 90, 'mario');
 
 	     var scaleX = 3;
-		  var scaleY = 3;    
-		  player.scale.set(scaleX , scaleY );
+		 var scaleY = 3;    
+		 player.scale.set(scaleX , scaleY );
 
 	    //  We need to enable physics on the player
 	    gameState.game.physics.arcade.enable(player);
@@ -14,7 +14,7 @@ module.exports = {
 	    //  Player physics properties. Give the little guy a slight bounce.
 	    player.body.bounce.y = 0.2;
 	    player.body.gravity.y = 300;
-	    player.body.collideWorldBounds = true;
+	    player.body.collideWorldBounds = false;
 
 	    //  Our two animations, walking left and right.
 
@@ -31,8 +31,15 @@ module.exports = {
 	    // Invert scale.x to flip left/right
 	    player.scale.x *= -1;
 
+	    player.updateMario = function(){
+			player.x += 3;
+		} 
+
 	    return player;
 
 	}
+
+
+
 
 }

@@ -20,16 +20,23 @@ function create() {
     gameState.platforms = platform.createPlatform(gameState) ;
     gameState.kong = kong.createKong(gameState);
     gameState.mario = mario.createMario(gameState);
-    gameState.barrels = barrel.createBarrels(gameState)
+    gameState.barrels = barrel.createBarrels(gameState);
+
+    console.log(gameState.platforms.platformRowsHeight);
 }
 
 function update() {
 
+  gameState.game.debug.spriteInfo(gameState.mario, 20, 32);
+
   gameState.game.physics.arcade.collide(gameState.mario, gameState.platforms);
   gameState.game.physics.arcade.collide(gameState.kong, gameState.platforms);
   gameState.game.physics.arcade.collide(gameState.barrels, gameState.platforms);
-}
 
+  gameState.mario.updateMario();
+
+
+}
 
 
 
