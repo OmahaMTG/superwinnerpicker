@@ -1,3 +1,4 @@
+var platformRowsHeight = [];
 
 module.exports = {
 
@@ -5,7 +6,7 @@ module.exports = {
     var platformHeight = 24;
     var spaceBetweenPlatform = 120;
     var kongPlatformSpace = 200;
-    var platformRowsHeight = new Array();
+
 
     var platforms = gameState.game.add.group();
     platforms.enableBody = true;
@@ -16,10 +17,9 @@ module.exports = {
     for(var rows = 0; rows < totalRows; rows++)
     {
       platformRowsHeight.push(rowHeightOffset);
-      console.log("add row");
+      console.log("add row:" + rowHeightOffset);
       for(var cols = 0; cols < gameState.game.world.width/(15*3); cols++)
       {
-        console.log("add col");
         var ground = platforms.create(cols * (15*3),  rowHeightOffset, 'platform');
         ground.scale.setTo(3, 3);
         ground.body.immovable = true;
@@ -27,9 +27,9 @@ module.exports = {
       rowHeightOffset = rowHeightOffset - spaceBetweenPlatform
     }
 
+    console.log("add kongs row:" + rowHeightOffset);
     for(var cols = 0; cols < 6; cols++)
     {
-      console.log("add col");
       var ground = platforms.create(cols * (15*3),  rowHeightOffset, 'platform');
       ground.scale.setTo(3, 3);
       ground.body.immovable = true;

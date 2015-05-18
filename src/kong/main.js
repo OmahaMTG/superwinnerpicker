@@ -10,10 +10,10 @@ gameState.game = new Phaser.Game(1170, 700, Phaser.AUTO, 'stage', { preload: pre
 
 function preload() {
 
-    gameState.game.load.spritesheet('mario', 'img/mario.png', 34, 28);
-    gameState.game.load.image('platform', 'img/platform.png');
-    gameState.game.load.image('barrel', 'img/barrel.png');
-    gameState.game.load.spritesheet('kong', 'img/kong.png', 48, 34);
+    gameState.game.load.spritesheet('mario', 'dist/img/mario.png', 34, 28);
+    gameState.game.load.image('platform', 'dist/img/platform.png');
+    gameState.game.load.image('barrel', 'dist/img/barrel.png');
+    gameState.game.load.spritesheet('kong', 'dist/img/kong.png', 48, 34);
 }
 
 function create() {

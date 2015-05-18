@@ -15,4 +15,21 @@ module.exports = {
 	    return barrel;
   }
 
+ // createWinnerBarrels :function(platformHeight, winnerName)
+  //{
+
+
+
+  //}
+
+ // clearWinnerBarrels :function()
+  //{
+
+  //}
+
+  //hitWinnerBarrel : function()
+  //{
+
+  //}
+
 }

@@ -1,6 +1,29 @@
+var isMovingRightToLeft = true;
+var platforms;
+
+function sortNumber(a,b) {
+    return b - a;
+}
+
+function getNextRowHeight(currentHeight) 
+{
+	var platformHeights = platforms.platformRowsHeight.sort(sortNumber);
+
+  for (var j = 0; j < platformHeights.length; j++){
+  	console.log('currentHeight : ' + currentHeight + ', platformHeight : ' + platformHeights[j]);
+    if(currentHeight > platformHeights[j])
+    {
+      return platformHeights[j];
+    }
+  }
+
+  return platformHeights[0];
+}
+
 module.exports = {
 
 	createMario : function(gameState){
+		platforms = gameState.platforms;
     // The player and its settings
 	    var player = gameState.game.add.sprite(100, gameState.game.world.height - 90, 'mario');
 
@@ -32,11 +55,34 @@ module.exports = {
 	    player.scale.x *= -1;
 
 	    player.updateMario = function(){
-			player.x += 3;
-		} 
+	    	if(isMovingRightToLeft)
+				player.x += 3;
+			else
+				player.x += -3;
+
+		}
+
+		player.checkWorldBounds = true;
+		player.events.onOutOfBounds.add(this.reachedEndOfPlatform, this); 
 
 	    return player;
 
+	},
+
+	reachedEndOfPlatform : function(player)	{
+		
+		player.scale.x *= -1;
+		if(isMovingRightToLeft)
+		{
+			isMovingRightToLeft = false;
+			player.x += 3;
+		}
+		else
+		{
+			isMovingRightToLeft = true;
+			player.x += -3;
+		}
+		player.y = getNextRowHeight(player.y) - 50;
 	}
 
 

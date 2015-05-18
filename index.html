@@ -11,18 +11,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="vendor/bootstrap.css">
+        <link rel="stylesheet" href="dist/vendor/bootstrap.css">
         <style>
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
             }
         </style>
-        <script src="http://localhost:8080/webpack-dev-server.js"></script>
-        <link rel="stylesheet" href="winner.css">
+        
+        <link rel="stylesheet" href="dist/winner.css">
 
     </head>
-    <body style="background-image: url('img/Jungle.jpg')">
+    <body style="background-image: url('dist/img/Jungle.jpg')">
 
 
     <div class="container">
@@ -34,13 +34,22 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-md-12">
+            <input type=button value="Pick 1 Winner" />
+            <input type=button value="Pick 2 Winner" />
+            <input type=button value="Pick 3 Winner" />
+            <input type=button value="Pick 4 Winner" />
+        </div>
+      </div>
+
 
     </div> <!-- /container -->        
 
 
-        <script src="vendor/phaser.js"></script>
+        <script src="dist/vendor/phaser.js"></script>
 
-        <script src="kong.js"></script>
+        <script src="dist/kong.js"></script>
 
 
     </body>
